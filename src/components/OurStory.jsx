@@ -332,8 +332,8 @@ const OurStory = () => {
       <div className="our-story__artisans">
         <div className="our-story__artisans-left">
           <img
-            src="/story/temple-cutout.png"
-            alt="Thanjavur Periya Kovil Cutout"
+            src="/story/tanjore-sketch-transparent.png"
+            alt="Thanjavur Periya Kovil Sketch"
             className="our-story__image-watermark"
             id="story-temple-img"
           />

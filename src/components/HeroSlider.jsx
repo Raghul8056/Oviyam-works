@@ -98,7 +98,7 @@ const HeroSlider = () => {
       <div className="hero-slider__wrapper">
         <video
           ref={videoRef}
-          src="/hero-video.mp4"
+          src="/hero-video-2.mp4"
           className="hero-slider__video"
           autoPlay
           loop
