@@ -1,0 +1,232 @@
+/* ===================================================
+   Our Works — Section 5 (Asymmetrical Art Gallery)
+   =================================================== */
+
+.works {
+  position: relative;
+  padding: 100px 40px;
+  max-width: 1320px;
+  margin: 0 auto;
+  background: #FDFCFA; /* Subtle cream background to differentiate */
+  border-radius: 24px;
+  margin-bottom: 80px;
+}
+
+/* ---------- Header ---------- */
+.works__header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+}
+
+.works__title {
+  font-family: var(--font-heading);
+  font-size: 64px;
+  font-weight: 400;
+  color: #1a1a1a;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.works__subtitle {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 24px;
+}
+
+.works__divider {
+  width: 60px;
+  height: 2px;
+  background: #8B6F4E;
+  margin: 0 auto;
+}
+
+/* ---------- Asymmetrical Gallery Grid ---------- */
+.works__gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 280px;
+  gap: 24px;
+}
+
+/* Card Base */
+.works__item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(201, 169, 110, 0.2);
+}
+
+.works__item:hover {
+  box-shadow: 0 12px 30px rgba(139, 111, 78, 0.15);
+  border-color: rgba(201, 169, 110, 0.5);
+}
+
+/* Specific Layout Classes */
+.works__item--large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.works__item--tall {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.works__item--wide {
+  grid-column: span 2;
+  grid-row: span 1;
+}
+
+.works__item--small {
+  grid-column: span 1;
+  grid-row: span 1;
+}
+
+/* Image Styling */
+.works__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.works__item:hover .works__image {
+  transform: scale(1.08);
+}
+
+/* Overlay & Text */
+.works__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 40%,
+    rgba(0, 0, 0, 0.7) 90%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 30px;
+}
+
+.works__item:hover .works__overlay {
+  opacity: 1;
+}
+
+.works__item-title {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 6px;
+  transform: translateY(10px);
+  transition: transform 0.4s ease;
+}
+
+.works__item-subtitle {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: #E8D5A3;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transform: translateY(10px);
+  transition: transform 0.4s ease;
+  transition-delay: 0.05s;
+}
+
+.works__item:hover .works__item-title,
+.works__item:hover .works__item-subtitle {
+  transform: translateY(0);
+}
+
+/* ---------- Footer CTA ---------- */
+.works__footer {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.works__explore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 28px;
+  border: 1.5px solid #1a1a1a;
+  border-radius: 50px;
+  background: transparent;
+  color: #1a1a1a;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.works__explore-btn:hover {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.works__explore-btn:hover svg {
+  transform: translateX(4px);
+}
+
+.works__explore-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.works__explore-btn:active {
+  transform: scale(0.97);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1024px) {
+  .works__gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .works__item--large {
+    grid-column: span 2;
+  }
+  
+  .works__item--wide {
+    grid-column: span 2;
+  }
+  
+  .works__item--tall, .works__item--small {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .works__gallery {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 300px;
+  }
+  
+  .works__item--large,
+  .works__item--tall,
+  .works__item--wide,
+  .works__item--small {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  
+  .works {
+    padding: 60px 20px;
+  }
+  
+  .works__title {
+    font-size: 40px;
+  }
+}

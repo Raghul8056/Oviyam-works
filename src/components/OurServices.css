@@ -1,0 +1,398 @@
+/* ===================================================
+   Our Services — Premium Luxury Section
+   =================================================== */
+
+.services {
+  padding: 100px 40px 80px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+/* ---------- Header ---------- */
+.services__header {
+  text-align: center;
+  margin-bottom: 100px;
+  position: relative;
+  z-index: 1;
+}
+
+.services__label {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: #8B6F4E;
+  margin-bottom: 16px;
+}
+
+.services__title {
+  font-family: var(--font-heading);
+  font-size: 72px;
+  font-weight: 400;
+  color: #1a1a1a;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.services__divider {
+  width: 60px;
+  height: 2px;
+  background: #8B6F4E;
+  margin: 0 auto;
+}
+
+/* ---------- Card Grid ---------- */
+.services__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  max-width: 1280px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Card ---------- */
+.services__card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-bottom-color: rgba(201, 169, 110, 0.3);
+  border-right-color: rgba(201, 169, 110, 0.3);
+  overflow: hidden;
+  transition: all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow:
+    0 2px 12px rgba(139, 111, 78, 0.06),
+    0 8px 30px rgba(0, 0, 0, 0.04);
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.services__card:hover {
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(255, 255, 255, 0.8);
+  box-shadow:
+    0 20px 40px rgba(139, 111, 78, 0.15),
+    0 8px 16px rgba(0, 0, 0, 0.05);
+}
+
+/* Card Glare / Shine overlay */
+.services__card-glare {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    rgba(255, 255, 255, 0) 35%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0) 65%
+  );
+  pointer-events: none;
+  z-index: 3;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.services__card:hover .services__card-glare {
+  opacity: 1;
+}
+
+/* Card Image */
+.services__card-image-wrapper {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+
+.services__card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.services__card:hover .services__card-image {
+  transform: scale(1.05);
+}
+
+.services__card-image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.08) 100%);
+  pointer-events: none;
+}
+
+/* Card Content */
+.services__card-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 28px 28px 32px;
+  text-align: center;
+}
+
+.services__card-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FAF4E8, #F5ECD8);
+  border: 1px solid rgba(201, 169, 110, 0.25);
+  color: #8B6F4E;
+  margin-bottom: 20px;
+  transition: all 0.35s ease;
+}
+
+.services__card:hover .services__card-icon {
+  background: linear-gradient(135deg, #8B6F4E, #A68B6B);
+  color: #fff;
+  border-color: #8B6F4E;
+}
+
+.services__card-title {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 500;
+  color: #1a1a1a;
+  letter-spacing: 0.5px;
+  margin-bottom: 14px;
+}
+
+.services__card-text {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.75;
+  color: #777;
+  margin-bottom: 24px;
+}
+
+.services__card-btn {
+  margin-top: auto;
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  color: #8B6F4E;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.services__card-btn svg {
+  transition: transform 0.3s ease;
+}
+
+.services__card-btn:hover {
+  color: #1a1a1a;
+}
+
+.services__card-btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* ---------- Inquiry Form CTA ---------- */
+.services__cta-container {
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+/* Massive Temple Watermark on the Right */
+.services__cta-watermark {
+  position: absolute;
+  top: -30%; 
+  right: -30%; /* Pushed right off the form boundary */
+  width: 1200px; /* Massive size */
+  max-width: none;
+  height: auto;
+  opacity: 0.85; 
+  pointer-events: none;
+  filter: drop-shadow(0 25px 45px rgba(0,0,0,0.25)); 
+  transform: scaleX(-1); /* Flips it horizontally to simulate a different angle */
+  z-index: 0; /* Behind the form box */
+}
+
+.services__cta-box {
+  position: relative;
+  z-index: 2; /* Keep form above the temple watermark */
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-bottom-color: rgba(201, 169, 110, 0.4);
+  border-radius: 16px;
+  padding: 50px 60px;
+  max-width: 760px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+}
+
+.services__cta-title {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: 400;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+}
+
+.services__cta-subtitle {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.services__form {
+  text-align: left;
+}
+
+.services__form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.services__form-group {
+  margin-bottom: 24px;
+}
+
+.services__form-label {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.services__form-input,
+.services__form-textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(139, 111, 78, 0.2);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: #1a1a1a;
+  transition: all 0.3s ease;
+}
+
+.services__form-input:focus,
+.services__form-textarea:focus {
+  outline: none;
+  border-color: #8B6F4E;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 0 4px rgba(139, 111, 78, 0.1);
+}
+
+.services__form-input::placeholder,
+.services__form-textarea::placeholder {
+  color: #aaa;
+}
+
+.services__form-textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+.services__form-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 8px;
+  padding: 16px 36px;
+  border: none;
+  border-radius: 50px;
+  background: #1a1a1a;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.services__form-submit:hover {
+  background: #8B6F4E;
+}
+
+.services__form-submit:hover svg {
+  transform: translateX(4px);
+}
+
+.services__form-submit svg {
+  transition: transform 0.3s ease;
+}
+
+.services__form-submit:active {
+  transform: scale(0.98);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .services {
+    padding: 60px 24px;
+  }
+
+  .services__title {
+    font-size: 44px;
+  }
+
+  .services__grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+    gap: 28px;
+  }
+
+  .services__cta-box {
+    padding: 40px 30px;
+  }
+
+  .services__form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .services {
+    padding: 40px 16px;
+  }
+
+  .services__title {
+    font-size: 36px;
+  }
+
+  .services__card-image-wrapper {
+    height: 200px;
+  }
+
+  .services__card-content {
+    padding: 20px 20px 24px;
+  }
+
+  .services__cta-box {
+    padding: 30px 20px;
+  }
+}

@@ -1,0 +1,165 @@
+/* ===================================================
+   CTA — Section 7 (Call to Action)
+   =================================================== */
+
+.cta-section {
+  position: relative;
+  padding: 120px 40px;
+  background: #1a1a1a;
+  color: #fff;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Background mandala/ornament pattern */
+.cta-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0 L100 50 L50 100 L0 50 Z' fill='none' stroke='%23C9A96E' stroke-width='0.5' opacity='0.05'/%3E%3C/svg%3E");
+  background-size: 300px 300px;
+  background-position: center;
+  pointer-events: none;
+}
+
+/* Floating gold particles */
+.cta-section__particles {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.cta-section__particle {
+  position: absolute;
+  bottom: -10px;
+  width: 3px;
+  height: 3px;
+  background: rgba(201, 169, 110, 0.6);
+  border-radius: 50%;
+  opacity: 0;
+  animation: particleRise linear infinite;
+}
+
+.cta-section__particle:nth-child(even) {
+  width: 2px;
+  height: 2px;
+  background: rgba(232, 213, 163, 0.4);
+}
+
+.cta-section__particle:nth-child(3n) {
+  width: 4px;
+  height: 4px;
+  background: rgba(201, 169, 110, 0.3);
+}
+
+.cta-section__container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.cta-section__title {
+  font-family: var(--font-heading);
+  font-size: 56px;
+  font-weight: 400;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+/* Golden emphasis on "DIVINE" — with shimmer */
+.cta-section__title-highlight {
+  display: block;
+  background: linear-gradient(
+    90deg,
+    #E8D5A3 0%,
+    #B8860B 25%,
+    #F5E6C8 50%,
+    #B8860B 75%,
+    #E8D5A3 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-style: italic;
+  animation: shimmer 4s linear infinite;
+}
+
+.cta-section__divider {
+  width: 60px;
+  height: 2px;
+  background: #8B6F4E;
+  margin: 0 auto 30px;
+}
+
+.cta-section__subtitle {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 50px;
+}
+
+/* The CTA Button - matching the transparent pill style but inverted for dark background */
+.cta-section__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 36px;
+  border: 1.5px solid #C9A96E;
+  border-radius: 50px;
+  background: transparent;
+  color: #C9A96E;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cta-section__btn:hover {
+  background: #C9A96E;
+  color: #1a1a1a;
+  box-shadow: 0 4px 20px rgba(201, 169, 110, 0.3);
+}
+
+.cta-section__btn:hover svg {
+  transform: translateX(4px);
+}
+
+.cta-section__btn svg {
+  transition: transform 0.3s ease;
+}
+
+.cta-section__btn:active {
+  transform: scale(0.97);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .cta-section {
+    padding: 100px 30px;
+  }
+  .cta-section__title {
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 600px) {
+  .cta-section {
+    padding: 80px 20px;
+  }
+  .cta-section__title {
+    font-size: 36px;
+  }
+  .cta-section__subtitle {
+    font-size: 16px;
+  }
+}

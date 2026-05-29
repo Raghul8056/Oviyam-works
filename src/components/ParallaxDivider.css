@@ -1,0 +1,84 @@
+/* ===================================================
+   Parallax Divider — Full-width painting backgrounds
+   =================================================== */
+
+.parallax-divider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.parallax-divider__image {
+  position: absolute;
+  top: -15%;
+  left: 0;
+  width: 100%;
+  height: 130%;
+  object-fit: cover;
+  object-position: center;
+  will-change: transform;
+  z-index: 0;
+}
+
+.parallax-divider__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.parallax-divider__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 40px;
+  max-width: 800px;
+}
+
+.parallax-divider__content h3 {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+}
+
+.parallax-divider__content p {
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.3vw, 17px);
+  line-height: 1.8;
+  color: rgba(232, 213, 163, 0.9);
+  letter-spacing: 0.5px;
+}
+
+.parallax-divider__content .parallax-divider__quote {
+  font-family: var(--font-heading);
+  font-size: clamp(18px, 2.5vw, 28px);
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .parallax-divider {
+    height: 40vh !important;
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .parallax-divider {
+    height: 35vh !important;
+    min-height: 240px;
+  }
+  
+  .parallax-divider__content {
+    padding: 24px;
+  }
+}

@@ -1,0 +1,68 @@
+/* ===================================================
+   Parallax Background — Horizontal Scrolling Panorama
+   =================================================== */
+
+.parallax-bg {
+  grid-column: 1;
+  grid-row: 1;
+  position: sticky;
+  top: 1cm;
+  height: calc(100vh - 2cm);
+  width: calc(100% - 2cm);
+  margin: 0 auto;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  border-radius: 20px; /* curved edges */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transform: translateZ(0); /* force hardware acceleration for border-radius clip */
+}
+
+/* Horizontal carousel track — two images side by side */
+.parallax-bg__track {
+  display: flex;
+  width: fit-content;
+  height: 140%;
+  position: absolute;
+  top: -20%;
+  left: 0;
+  animation: bgScrollCarousel 60s linear infinite;
+  will-change: transform;
+}
+
+.parallax-bg__img {
+  height: 100%;
+  width: auto;
+  min-width: 100vw;
+  object-fit: cover;
+  object-position: center;
+  flex-shrink: 0;
+}
+
+/* Infinite horizontal scroll */
+@keyframes bgScrollCarousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* White overlay — balanced: temple visible + text readable */
+.parallax-bg__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(253, 252, 250, 0.65);
+  z-index: 1;
+}
+
+/* Subtle diamond pattern on top */
+.parallax-bg__pattern {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 0 L100 50 L50 100 L0 50 Z' fill='none' stroke='%23C9A96E' stroke-width='0.3' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 250px 250px;
+  z-index: 2;
+  pointer-events: none;
+}

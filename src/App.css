@@ -1,0 +1,85 @@
+/* ===================================================
+   App Styles
+   =================================================== */
+
+.app {
+  min-height: 100vh;
+  /* Multi-layered luxury background */
+  background: 
+    radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.8) 0%, rgba(250, 246, 239, 0) 40%),
+    radial-gradient(circle at 85% 55%, rgba(225, 213, 193, 0.45) 0%, rgba(250, 246, 239, 0) 50%),
+    radial-gradient(circle at 10% 95%, rgba(235, 222, 202, 0.5) 0%, rgba(250, 246, 239, 0) 40%),
+    #FAF6EF;
+  background-attachment: fixed;
+}
+
+/* ---------- Mega Menu Push Animation ---------- */
+.page-content {
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+  transform: translateY(0);
+  will-change: transform;
+}
+
+body.mega-menu-open .page-content {
+  transform: translateY(380px); /* Height of the mega menu */
+}
+
+/* ---------- Readability over Parallax Background ---------- */
+/* Text shadow on all headings and body text for contrast */
+
+.our-story__title,
+.our-story__generation-title,
+.our-story__artisans-title,
+.services__title,
+.collections__title,
+.stats__title,
+.cta-section__title {
+  text-shadow: 0 1px 8px rgba(255, 255, 255, 0.8);
+}
+
+.our-story__subtitle,
+.our-story__generation-text,
+.our-story__artisans-text,
+.services__subtitle,
+.collections__subtitle,
+.stats__subtitle {
+  text-shadow: 0 1px 6px rgba(255, 255, 255, 0.7);
+  color: #222;
+}
+
+.our-story__label,
+.services__label {
+  text-shadow: 0 1px 4px rgba(255, 255, 255, 0.6);
+}
+
+/* Navbar frosted glass */
+.navbar {
+  backdrop-filter: blur(10px);
+}
+
+/* ---------- Sections ---------- */
+.section {
+  padding: var(--section-padding);
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+.section--alt {
+  background-color: var(--color-bg-warm);
+}
+
+.section__title {
+  font-family: var(--font-heading);
+  font-size: 48px;
+  font-weight: 500;
+  color: var(--color-text);
+  margin-bottom: 16px;
+  letter-spacing: 0.5px;
+}
+
+.section__subtitle {
+  font-size: 17px;
+  color: var(--color-text-muted);
+  letter-spacing: 0.5px;
+}

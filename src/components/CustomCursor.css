@@ -1,0 +1,51 @@
+/* ===================================================
+   Custom Cursor (Luxury Feel)
+   =================================================== */
+
+/* Hide the default cursor globally on desktop */
+@media (min-width: 769px) {
+  * {
+    cursor: none !important;
+  }
+}
+
+.custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: #C9A96E; /* Premium gold */
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, background-color 0.3s;
+}
+
+.custom-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(201, 169, 110, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: transform 0.15s ease-out, width 0.3s, height 0.3s, border-color 0.3s, background-color 0.3s;
+}
+
+/* Hovering over links/buttons */
+.custom-cursor-dot.active {
+  background-color: transparent;
+}
+
+.custom-cursor-ring.active {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(201, 169, 110, 0.1);
+  border-color: #C9A96E;
+  mix-blend-mode: exclusion;
+}
