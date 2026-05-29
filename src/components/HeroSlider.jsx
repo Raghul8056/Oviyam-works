@@ -130,7 +130,7 @@ const HeroSlider = () => {
             OVIYAM
           </h1>
           <p className="hero-slider__tagline" ref={taglineRef}>
-            Sacred Art &nbsp;·&nbsp; Timeless Tradition
+            Customize The Divine Presence in your Home
           </p>
         </div>
         {/* Explore Button inside video */}

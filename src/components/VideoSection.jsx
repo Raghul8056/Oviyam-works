@@ -41,6 +41,11 @@ const VideoSection = () => {
         </div>
         
       </div>
+
+      <div className="video-section__footer">
+        <p className="video-section__footer-desc">&ldquo;Your dream pooja room is one click away.&rdquo;</p>
+        <a href="#consultation" className="video-section__footer-cta">Customize</a>
+      </div>
     </section>
   );
 };
