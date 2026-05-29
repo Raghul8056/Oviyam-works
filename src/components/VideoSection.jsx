@@ -23,7 +23,7 @@ const VideoSection = () => {
         <video 
           ref={videoRef}
           className="video-section__video" 
-          src="/videos/user-video.mp4" 
+          src="/videos/explain.mp4" 
           loop 
           playsInline
         />

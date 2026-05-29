@@ -83,18 +83,13 @@
 .collections__carousel-track {
   display: flex;
   width: fit-content;
-  animation: scrollMarquee 40s linear infinite;
+  /* CSS animation removed: perfectly handled by JS scroll loop now */
 }
 
 .collections__carousel {
   display: flex;
   gap: 30px;
   padding-right: 30px; /* Equal to gap to make loop seamless */
-}
-
-@keyframes scrollMarquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-50%)); }
 }
 
 /* ---------- Collection Cards ---------- */

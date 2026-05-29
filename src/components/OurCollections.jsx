@@ -95,53 +95,59 @@ const OurCollections = () => {
   const sliderRef = useRef(null);
   const trackRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
+  const reqRef = useRef(null);
 
-  // Handle mouse wheel → horizontal scroll when hovering
+  // Handle mouse wheel → manual horizontal scroll
   const handleWheel = useCallback((e) => {
     if (!sliderRef.current) return;
-    // Prevent vertical page scroll, convert to horizontal
     e.preventDefault();
     sliderRef.current.scrollLeft += e.deltaY + e.deltaX;
   }, []);
 
-  // Mouse enter → pause auto-scroll, enable manual horizontal scrolling
-  const handleMouseEnter = useCallback(() => {
-    setIsHovered(true);
-    if (trackRef.current) {
-      // Capture current computed transform so it doesn't jump
-      const computedStyle = window.getComputedStyle(trackRef.current);
-      const transform = computedStyle.getPropertyValue('transform');
-      trackRef.current.style.animationPlayState = 'paused';
-      trackRef.current.style.transform = transform;
-    }
-  }, []);
+  const handleMouseEnter = useCallback(() => setIsHovered(true), []);
+  const handleMouseLeave = useCallback(() => setIsHovered(false), []);
 
-  // Mouse leave → resume infinite auto-scroll
-  const handleMouseLeave = useCallback(() => {
-    setIsHovered(false);
-    if (trackRef.current) {
-      trackRef.current.style.transform = '';
-      trackRef.current.style.animationPlayState = 'running';
+  // Flawless infinite auto-scroll and manual wrap loop using scrollLeft
+  const scrollLoop = useCallback(() => {
+    if (!sliderRef.current) return;
+    const slider = sliderRef.current;
+    
+    // Since we duplicated the items EXACTLY once, the midpoint is exactly half the total scrollable width
+    const halfWidth = slider.scrollWidth / 2;
+    
+    // Auto-scroll when not hovering
+    if (!isHovered) {
+      slider.scrollLeft += 1.2; // Auto-scroll speed
     }
-    // Reset scroll position for seamless resume
-    if (sliderRef.current) {
-      sliderRef.current.scrollLeft = 0;
+    
+    // Seamless infinite wrap check
+    // We add a tiny buffer (1px) to prevent precision issues on high-refresh monitors
+    if (slider.scrollLeft >= halfWidth - 1) {
+      slider.scrollLeft -= halfWidth; 
+    } else if (slider.scrollLeft <= 0 && isHovered) {
+      // If user scrolls backwards manually past 0, jump to the end of the first set
+      slider.scrollLeft += halfWidth;
     }
-  }, []);
+    
+    reqRef.current = requestAnimationFrame(scrollLoop);
+  }, [isHovered]);
 
-  // Attach/detach wheel listener (needs { passive: false } for preventDefault)
+  // Attach wheel listener and start animation loop
   useEffect(() => {
     const slider = sliderRef.current;
-    if (!slider) return;
-
-    if (isHovered) {
+    if (slider) {
       slider.addEventListener('wheel', handleWheel, { passive: false });
     }
-
+    
+    reqRef.current = requestAnimationFrame(scrollLoop);
+    
     return () => {
-      slider.removeEventListener('wheel', handleWheel);
+      if (slider) {
+        slider.removeEventListener('wheel', handleWheel);
+      }
+      cancelAnimationFrame(reqRef.current);
     };
-  }, [isHovered, handleWheel]);
+  }, [scrollLoop, handleWheel]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
