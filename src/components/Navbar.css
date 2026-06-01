@@ -85,6 +85,46 @@
   transform: scale(0.92);
 }
 
+/* ---------- CTA Button ---------- */
+.navbar__cta-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #1a1a1a;
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  margin-left: 8px;
+}
+
+.navbar__cta-btn:hover {
+  background: #C9A96E;
+  color: #1a1a1a;
+}
+
+.navbar__cta-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: #C9A96E;
+  color: #1a1a1a;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.navbar__cta-btn:hover .navbar__cta-icon {
+  background: #fff;
+}
+
 /* ---------- Search (always visible, rectangular) ---------- */
 .navbar__search {
   display: flex;
